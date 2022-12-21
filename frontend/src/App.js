@@ -1,10 +1,11 @@
-import "./App.scss";
+import "./styles/main.scss";
+import Header from "./components/Header";
 
 function App() {
   console.log("some console testing");
   return (
     <div className="App">
-      <h1>Let's generate some images</h1>
+      <Header />
     </div>
   );
 }
