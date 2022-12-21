@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
+@import "./variables";
+
 *,
 *:before,
 *:after {
@@ -19,6 +21,10 @@ ul {
 a {
   text-decoration: none;
   font-size: 1.2rem;
+
+  &:hover {
+    color: $primary-color;
+  }
 }
 
 body {
@@ -27,55 +33,6 @@ body {
   line-height: 1.5;
   color: #fff;
   background: #000;
-}
-
-/* Showcase */
-.showcase {
-  height: 450px;
-  width: 100%;
-  background: var(--primary-color);
-}
-
-.showcase h1 {
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  padding: 1rem 0;
-}
-
-.showcase form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-.showcase form input,
-form select {
-  font-size: 20px;
-  width: 500px;
-  max-width: 500px;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-form button {
-  font-size: 20px;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 5px;
-  background: #333;
-  color: #fff;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-form button:hover {
-  transform: scale(1.1);
 }
 
 /* Image */
