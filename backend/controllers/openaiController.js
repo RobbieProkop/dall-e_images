@@ -19,7 +19,19 @@ const generateImage = async (req, res) => {
       success: true,
       data: imageUrl,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: "The image could not be generated",
+    });
+
+    if (error.response) {
+      console.log("error.respons.status :>> ", error.respons.status);
+      console.log("error.respons.data :>> ", error.respons.data);
+    } else {
+      console.log(error.message);
+    }
+  }
 };
 
 module.exports = { generateImage };
