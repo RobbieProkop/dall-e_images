@@ -6,11 +6,17 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateImage = async (req, res) => {
+  // can also get the number of images. currently hard coded to 1
+  const { prompt, size, n } = req.body;
+
+  const imageSize =
+    size === "small" ? "256x256" : size === "medium" ? "512x512" : "1024x1024";
   try {
     const response = await openai.createImage({
-      prompt: "Polar Bear",
-      n: 1,
-      size: "512x512",
+      prompt,
+      // number of images
+      n: Number(n),
+      size: imageSize,
     });
 
     const imageUrl = response.data.data[0].url;
