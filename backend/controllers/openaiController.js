@@ -7,13 +7,13 @@ const openai = new OpenAIApi(configuration);
 
 const generateImage = async (req, res) => {
   try {
-    const res = await openai.createImage({
-      prompt: "Russian civilians slugging away in a cold blizzard",
+    const response = await openai.createImage({
+      prompt: "Polar Bear",
       n: 1,
       size: "512x512",
     });
 
-    const imageUrl = res.data.data[0].url;
+    const imageUrl = response.data.data[0].url;
 
     res.status(200).json({
       success: true,
@@ -26,8 +26,8 @@ const generateImage = async (req, res) => {
     });
 
     if (error.response) {
-      console.log("error.respons.status :>> ", error.respons.status);
-      console.log("error.respons.data :>> ", error.respons.data);
+      console.log("error.response.status :>> ", error.response.status);
+      console.log("error.respons.data :>> ", error.response.data);
     } else {
       console.log(error.message);
     }
