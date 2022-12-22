@@ -3,18 +3,20 @@ import Header from "./components/Header";
 import Showcase from "./components/Showcase";
 import Image from "./components/Image";
 import Spinner from "./components/Spinner";
+import { useState } from "react";
 
 function App() {
-  console.log("some console testing");
+  const [spinner, setSpinner] = useState(false);
+
   return (
     <div className="App">
       <Header />
 
       <main>
-        <Showcase />
+        <Showcase spinner={spinner} setSpinner={setSpinner} />
         <Image />
       </main>
-      <Spinner />
+      <Spinner spinner={spinner} setSpinner={setSpinner} />
     </div>
   );
 }

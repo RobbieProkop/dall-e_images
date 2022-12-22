@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/showcase.scss";
 
-const Showcase = () => {
+const Showcase = ({ spinner, setSpinner }) => {
   const [inputValue, setInputValue] = useState("");
   const [size, setSize] = useState("medium");
 
@@ -12,7 +12,9 @@ const Showcase = () => {
     setInputValue(e.target.value);
   };
 
-  const generateImageRequest = async (inputValue, size) => {};
+  const generateImageRequest = async (inputValue, size) => {
+    setSpinner(true);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
