@@ -1,8 +1,10 @@
+@import "./variables";
+
 /* Showcase */
 .showcase {
   height: 450px;
   width: 100%;
-  background: var(--primary-color);
+  background: $primary-color;
 
   h1 {
     font-size: 2.5rem;
