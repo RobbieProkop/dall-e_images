@@ -7,7 +7,7 @@ const openai = new OpenAIApi(configuration);
 
 const generateImage = async (req, res) => {
   // can also get the number of images. currently hard coded to 1
-  const { prompt, size, n } = req.body;
+  const { prompt, size } = req.body;
 
   const imageSize =
     size === "small" ? "256x256" : size === "medium" ? "512x512" : "1024x1024";
@@ -15,7 +15,8 @@ const generateImage = async (req, res) => {
     const response = await openai.createImage({
       prompt,
       // number of images
-      n: Number(n),
+      // n: Number(n),
+      n: 1,
       size: imageSize,
     });
 
