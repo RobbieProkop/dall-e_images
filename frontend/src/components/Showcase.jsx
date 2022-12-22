@@ -1,12 +1,29 @@
+import { useState } from "react";
 import "../styles/showcase.scss";
 
 const Showcase = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    return inputValue;
+  };
+
   return (
     <section>
-      <form id="image-form">
+      <form id="image-form" onSubmit={onSubmit}>
         <h1>What kind of Image do you want?</h1>
         <div className="form-control">
-          <input type="text" id="prompt" placeholder="Describe an image" />
+          <input
+            type="text"
+            id="prompt"
+            placeholder="Describe an image"
+            onChange={handleChange}
+          />
         </div>
 
         {/* size */}
