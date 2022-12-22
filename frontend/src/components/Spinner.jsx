@@ -1,6 +1,6 @@
 import "../styles/spinner.scss";
 
 const Spinner = () => {
-  return <></>;
+  return <div className="spinner"></div>;
 };
 export default Spinner;

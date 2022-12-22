@@ -12,10 +12,13 @@ const Showcase = () => {
     setInputValue(e.target.value);
   };
 
+  const generateImageRequest = async (inputValue, size) => {};
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (inputValue === "") return alert("Please add a description");
-    return [inputValue, size];
+    console.log([inputValue, size]);
+    generateImageRequest(inputValue, size);
   };
 
   return (
@@ -35,7 +38,9 @@ const Showcase = () => {
         <div className="form-control">
           <select name="size" id="size" onChange={sizeChange}>
             <option value="small">Small</option>
-            <option value="medium">Medium</option>
+            <option value="medium" selected>
+              Medium
+            </option>
             <option value="large">Large</option>
           </select>
         </div>
