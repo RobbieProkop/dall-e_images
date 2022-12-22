@@ -8,6 +8,7 @@ import { useState } from "react";
 function App() {
   const [spinner, setSpinner] = useState(false);
   const [errorText, setErrorText] = useState("");
+  const [imageSrc, setImageSrc] = useState("");
 
   return (
     <div className="App">
@@ -18,8 +19,9 @@ function App() {
           spinner={spinner}
           setSpinner={setSpinner}
           setErrorText={setErrorText}
+          setImageSrc={setImageSrc}
         />
-        <Image errorText={errorText} />
+        <Image errorText={errorText} imageSrc={imageSrc} />
       </main>
       <Spinner spinner={spinner} setSpinner={setSpinner} />
     </div>

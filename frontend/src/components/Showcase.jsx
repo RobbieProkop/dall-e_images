@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/showcase.scss";
 
-const Showcase = ({ setSpinner, setErrorText }) => {
+const Showcase = ({ setSpinner, setErrorText, setImageSrc }) => {
   const [prompt, setPrompt] = useState("");
   const [size, setSize] = useState("medium");
 
@@ -17,6 +17,7 @@ const Showcase = ({ setSpinner, setErrorText }) => {
       setErrorText("");
       setSpinner(true);
       const response = await fetch(
+        // figure out how to change this later to not include localhost
         "http://localhost:5000/openai/generateimage",
         {
           method: "POST",
@@ -29,14 +30,16 @@ const Showcase = ({ setSpinner, setErrorText }) => {
           }),
         }
       );
-      console.log("response", response);
+
       if (!response.ok) {
         setSpinner(false);
         throw new Error("Image coundn't be generated");
       }
 
       const data = await response.json();
-      console.log("data", data);
+      // console.log("data", data);
+      const imageUrl = data.data;
+      setImageSrc(imageUrl);
       setSpinner(false);
     } catch (error) {
       setErrorText(error);
