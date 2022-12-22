@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/showcase.scss";
 
-const Showcase = ({ spinner, setSpinner }) => {
+const Showcase = ({ setSpinner, setErrorText }) => {
   const [inputValue, setInputValue] = useState("");
   const [size, setSize] = useState("medium");
 
@@ -13,7 +13,29 @@ const Showcase = ({ spinner, setSpinner }) => {
   };
 
   const generateImageRequest = async (inputValue, size) => {
-    setSpinner(true);
+    try {
+      setErrorText("");
+      setSpinner(true);
+      const response = await fetch("/openai/generateimage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          inputValue,
+          size,
+        }),
+      });
+      if (!response.ok) {
+        setSpinner(false);
+        throw new Error("Image coundn't be generated");
+      }
+
+      const data = await response.json();
+      console.log("data", data);
+    } catch (error) {
+      setErrorText(error);
+    }
   };
 
   const onSubmit = (e) => {

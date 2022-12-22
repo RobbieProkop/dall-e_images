@@ -1,8 +1,8 @@
-const Image = () => {
+const Image = ({ errorText }) => {
   return (
     <section className="image">
       <div className="image-container">
-        <h2 className="msg"></h2>
+        <h2 className="msg">{errorText}</h2>
         <img src="" alt="" id="image" />
       </div>
     </section>
