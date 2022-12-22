@@ -3,14 +3,19 @@ import "../styles/showcase.scss";
 
 const Showcase = () => {
   const [inputValue, setInputValue] = useState("");
+  const [size, setSize] = useState("medium");
 
+  const sizeChange = (e) => {
+    setSize(e.target.value);
+  };
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    return inputValue;
+    if (inputValue === "") return alert("Please add a description");
+    return [inputValue, size];
   };
 
   return (
@@ -28,7 +33,7 @@ const Showcase = () => {
 
         {/* size */}
         <div className="form-control">
-          <select name="size" id="size">
+          <select name="size" id="size" onChange={sizeChange}>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Large</option>
