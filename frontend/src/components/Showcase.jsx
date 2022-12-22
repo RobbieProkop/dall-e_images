@@ -19,7 +19,7 @@ const Showcase = () => {
   };
 
   return (
-    <section>
+    <section className="showcase">
       <form id="image-form" onSubmit={onSubmit}>
         <h1>What kind of Image do you want?</h1>
         <div className="form-control">

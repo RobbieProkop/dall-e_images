@@ -1,3 +1,5 @@
+import "../styles/spinner.scss";
+
 const Spinner = () => {
   return <></>;
 };
