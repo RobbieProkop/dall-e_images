@@ -48,6 +48,8 @@ const Showcase = ({ setSpinner, setErrorText, setImageSrc }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setErrorText("");
+    setImageSrc("");
     if (prompt === "") return alert("Please add a description");
     console.log([prompt, size]);
     generateImageRequest(prompt, size);
